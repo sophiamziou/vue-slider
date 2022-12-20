@@ -5,6 +5,7 @@ const {
 createApp({
     data(){
         return{
+            auto_play: null,
             activeImage: 0,
             slides: [
                 {
@@ -51,5 +52,19 @@ createApp({
                 this.activeImage = this.slides.length - 1;
             }
         },
+        autoPlay() 
+        {
+            this.auto_play = setInterval(()=>{
+                this.next()
+            }, 1000);
+        },
+        stopAuto()
+        {
+            clearInterval(this.auto_play)
+            this.auto_play = null
+        }
+    },
+    created(){
+        this.autoPlay()
     }
 }).mount('#app')

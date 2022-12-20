@@ -12,7 +12,7 @@
 <body>
     <div id="app">
         <div class="container">
-            <div class="slider-wrapper" tabindex="0">
+            <div class="slider-wrapper" tabindex="0" @mouseover = "stopAuto" @mouseleave = "autoPlay">
                 <div class="item">
                     <img v-bind:src="slides[activeImage].image" v-bind:alt="slides.title">
                     <div class="text">
